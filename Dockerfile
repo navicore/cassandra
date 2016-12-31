@@ -1,4 +1,4 @@
-FROM cassandra:3.9
+FROM cassandra:3.7
 MAINTAINER ed@onextent.com
 
 ENV REFRESHED_AT 2016-12-30
