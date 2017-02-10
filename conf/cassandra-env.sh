@@ -294,4 +294,4 @@ JVM_OPTS="$JVM_OPTS $MX4J_ADDRESS"
 JVM_OPTS="$JVM_OPTS $MX4J_PORT"
 JVM_OPTS="$JVM_OPTS $JVM_EXTRA_OPTS"
 
-JVM_OPTS="$JVM_OPTS -javaagent:${CASSANDRA_CONF}/newrelic/newrelic.jar -Dnewrelic.environment=test"
+JVM_OPTS="$JVM_OPTS -javaagent:${CASSANDRA_CONF}/newrelic/newrelic.jar -Dnewrelic.environment=${DEPLOY_ENV}"
