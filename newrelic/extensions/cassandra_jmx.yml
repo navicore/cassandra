@@ -1,0 +1,14 @@
+name: CassandraJmx
+version: 1.0
+enabled: true
+jmx:
+  - object_name: "org.apache.cassandra.metrics:type=Storage,name=Load"
+    metrics:
+      - attributes: Count
+  - object_name: "org.apache.cassandra.metrics:type=CQL,name=RegularStatementsExecuted"
+    metrics:
+      - attributes: Count
+  - object_name: "org.apache.cassandra.metrics:type=Compaction,name=BytesCompacted"
+    metrics:
+      - attributes: Count
+
