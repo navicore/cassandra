@@ -2,13 +2,13 @@ name: CassandraJmx
 version: 1.0
 enabled: true
 jmx:
-  - object_name: "org.apache.cassandra.metrics:type=Storage,name=Load"
+  - object_name: "org.apache.cassandra.metrics:type=*,scope=*,name=*"
     metrics:
-      - attributes: Count
-  - object_name: "org.apache.cassandra.metrics:type=CQL,name=RegularStatementsExecuted"
+      - attributes: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate, RateUnit, Value, Min, Max, Mean, StdDev, 50thPercentile, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, DurationUnit
+  - object_name: "org.apache.cassandra.metrics:type=*,name=*"
     metrics:
-      - attributes: Count
-  - object_name: "org.apache.cassandra.metrics:type=Compaction,name=BytesCompacted"
+      - attributes: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate, RateUnit, Value, Min, Max, Mean, StdDev, 50thPercentile, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, DurationUnit
+  - object_name: "org.apache.cassandra.metrics:type=*,path=*,scope=*,name=*"
     metrics:
-      - attributes: Count
+      - attributes: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate, RateUnit, Value, Min, Max, Mean, StdDev, 50thPercentile, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, DurationUnit
 

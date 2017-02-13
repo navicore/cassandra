@@ -73,7 +73,7 @@ common: &default_settings
 
   # Override other log rolling configuration and roll the logs daily.
   # Default is false.
-  log_daily: false
+  log_daily: true
 
   # The name of the log file.
   # Default is newrelic_agent.log.
