@@ -8,7 +8,11 @@ RUN apt-get -qq update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+COPY newrelic /etc/cassandra/newrelic
+COPY conf/cassandra-env.sh /etc/cassandra/cassandra-env.sh
+
 COPY k8s-entrypoint.sh /
+
 ENTRYPOINT ["/k8s-entrypoint.sh"]
 CMD ["cassandra", "-f"]
 
