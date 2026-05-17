@@ -5,6 +5,11 @@
 # Give Kubernetes time to add the new pod to the cassandra peer discovery service before we query DNS
 sleep 5
 
+#sed -i '/exec "$@"/i \java -jar plugin.jar' docker-entrypoint.sh
+update-ca-certificates -f
+#: ${CASSANDRA_CLUSTER_NAME:=Test Cluster}
+#sed -ie "s/Test Cluster/${CASSANDRA_CLUSTER_NAME}/g" /config/plugin.json
+
 my_ip=$(hostname --ip-address)
 
 CASSANDRA_SEEDS=$(host $PEER_DISCOVERY_SERVICE | \
@@ -21,4 +26,3 @@ if [ ! -z "$CASSANDRA_SEEDS" ]; then
 fi
 
 /docker-entrypoint.sh "$@"
-

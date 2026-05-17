@@ -1,0 +1,64 @@
+name: CassandraJmx
+version: 1.0
+enabled: true
+jmx:
+  - object_name: "org.apache.cassandra.db:type=BatchlogManager"
+    metrics:
+      - attributes: TotalBatchesReplayed
+  - object_name: "org.apache.cassandra.db:type=BlacklistedDirectories"
+    metrics:
+      - attributes: UnreadableDirectories, UnwritableDirectories
+  - object_name: "org.apache.cassandra.db:type=Caches"
+    metrics:
+      - attributes: KeyCacheKeysToSave, RowCacheKeysToSave, CounterCacheKeysToSave, RowCacheSavePeriodInSeconds, KeyCacheSavePeriodInSeconds, CounterCacheSavePeriodInSeconds, RowCacheCapacityInMB, KeyCacheCapacityInMB, CounterCacheCapacityInMB
+  - object_name: "org.apache.cassandra.db:type=Commitlog"
+    metrics: 
+      - attributes: RestoreDirectories, ArchiveCommand, RestoreCommand, ArchivingSegmentNames, ActiveContentSize, ActiveOnDiskSize, ActiveSegmentCompressionRatios, RestorePointInTime, RestorePrecision, ActiveSegmentNames
+  - object_name: "org.apache.cassandra.db:type=CompactionManager"
+    metrics:
+      - attributes: Compactions, CompactionSummary, CoreCompactorThreads, MaximumCompactorThreads, CoreValidationThreads, MaximumValidatorThreads, CompactionHistory
+  - object_name: "org.apache.cassandra.db:type=DynamicEndpointSnitch"
+    metrics:
+      - attributes: Scores, UpdateInterval, ResetInterval, BadnessThreshold, SubsnitchClassName, Severity
+  - object_name: "org.apache.cassandra.db:type=EndpointSnitchInfo"
+    metrics:
+      - attributes: SnitchName
+  - object_name: "org.apache.cassandra.db:type=IndexSummaries"
+    metrics:
+      - attributes: ResizeIntervalInMinutes, MemoryPoolCapacityInMB, IndexIntervals, AverageIndexInterval, MemoryPoolSizeInMB
+  - object_name: "org.apache.cassandra.db:type=NativeAccess"
+    metrics:
+      - attributes: MemoryLockable, Available
+  - object_name: "org.apache.cassandra.db:type=StorageProxy"
+    metrics:
+      - attributes: RpcTimeout, ReadRpcTimeout, RangeRpcTimeout, WriteRpcTimeout, CounterWriteRpcTimeout, CasContentionTimeout, TruncateRpcTimeout, NativeTransportMaxConcurrentConnections, HintedHandoffEnabled, MaxHintWindow, SchemaVersions, HintedHandoffDisabledDCs, TotalHints, MaxHintsInProgress, HintsInProgress, ReadRepairAttempted, ReadRepairRepairedBlocking, ReadRepairRepairedBackground
+  - object_name: "org.apache.cassandra.db:type=StorageService"
+    metrics:
+      - attributes: AllDataFileLocations, CommitLogLocation, SavedCachesLocation, PartitionerName, ClusterName, RpcTimeout, ReadRpcTimeout, RangeRpcTimeout, WriteRpcTimeout, CounterWriteRpcTimeout, CasContentionTimeout, TruncateRpcTimeout, CompactionThroughputMbPerSec, TombstoneWarnThreshold, TombstoneFailureThreshold, HintedHandoffThrottleInKB, IncrementalBackupsEnabled, StreamingSocketTimeout, Initialized, NativeTransportRunning, Keyspaces, GossipRunning, RPCServerRunning, Joined, StreamThroughputMbPerSec, InterDCStreamThroughputMbPerSec, TokenToEndpointMap, LocalHostId, HostIdMap, EndpointToHostId, HostIdToEndpoint, LoadString, LoadMap, Tokens, ReleaseVersion, SchemaVersion, LeavingNodes, MovingNodes, JoiningNodes, LiveNodes, UnreachableNodes, CurrentGenerationNumber, LoggingLevels, RemovalStatus, OperationMode, Starting, DrainProgress, Ownership, NonSystemKeyspaces, NonLocalStrategyKeyspaces, TraceProbability, BatchSizeFailureThreshold, SnapshotDetails, NotificationInfo
+  - object_name: "org.apache.cassandra.internal:type=*"
+    metrics:
+      - attributes: CoreThreads, MaximumThreads
+  - object_name: "org.apache.cassandra.metrics:type=*,scope=*,name=*"
+    metrics:
+      - attributes: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate, RateUnit, Value, Min, Max, Mean, StdDev, 50thPercentile, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, DurationUnit
+  - object_name: "org.apache.cassandra.metrics:type=*,name=*"
+    metrics:
+      - attributes: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate, RateUnit, Value, Min, Max, Mean, StdDev, 50thPercentile, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, DurationUnit
+  - object_name: "org.apache.cassandra.metrics:type=*,path=*,scope=*,name=*"
+    metrics:
+      - attributes: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate, RateUnit, Value, Min, Max, Mean, StdDev, 50thPercentile, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, DurationUnit
+  - object_name: "org.apache.cassandra.net:type=FailureDetector"
+    metrics:
+      - attributes: PhiConvictThreshold, AllEndpointStates, SimpleStates, DownEndpointCount, UpEndpointCount, PhiValues
+  - object_name: "org.apache.cassandra.net:type=MessagingService"
+    metrics:
+      - attributes: LargeMessagePendingTasks, LargeMessageCompletedTasks, LargeMessageDroppedTasks, SmallMessagePendingTasks, SmallMessageCompletedTasks, SmallMessageDroppedTasks, GossipMessagePendingTasks, GossipMessageCompletedTasks, GossipMessageDroppedTasks, DroppedMessages, TotalTimeouts, TimeoutsPerHost
+  - object_name: "org.apache.cassandra.net:type=StreamManager"
+    metrics:
+      - attributes: CurrentStreams, NotificationInfo
+  - object_name: "org.apache.cassandra.request:type=ReadRepairStage"
+    metrics:
+      - attributes: CoreThreads, MaximumThreads
+  - object_name: "org.apache.cassandra.service:type=GCInspector"
+    metrics:
+      - attributes: AndResetStats
